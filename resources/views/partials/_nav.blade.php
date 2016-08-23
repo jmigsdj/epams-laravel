@@ -18,7 +18,7 @@
         <li class="active"><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
-        <li><a href="/assets/index">Assets</a></li>
+        <li><a href="{{ route('assets.index')}}">Assets</a></li>
         <li><a href="/employee/index">Employees</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 #you must tell the controler to use the Model
 use App\Asset;
+use Session;
 
 class AssetController extends Controller
 {
@@ -18,7 +19,10 @@ class AssetController extends Controller
      */
     public function index()
     {
-        //
+      // create a variable  and store all the blog posts in it from the database
+      $assets = Asset::all(); //all() gets all the data in the database
+      //return a view and pass in the above variable
+      return view('assets.index')->withAssets($assets);
     }
 
     /**
@@ -63,6 +67,10 @@ class AssetController extends Controller
         $asset->ram = $request->ram;
         #save the object using the save() method
         $asset->save();
+
+        //add the namespace of Session
+        Session::flash('success', 'The asset was successfully created!');
+
         //redirect to another page
         #pass the ID from the object
         return redirect()->route('assets.show', $asset->id);
@@ -76,7 +84,10 @@ class AssetController extends Controller
      */
     public function show($id)
     {
-        //
+      //find() special helper method from elequent
+      //passing the object from the model gives you access to every data inside it
+      $asset = Asset::find($id);
+      return view('assets.show')->withAsset($asset);
     }
 
     /**

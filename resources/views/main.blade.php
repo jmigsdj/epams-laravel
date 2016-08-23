@@ -8,6 +8,7 @@
     @include('partials._nav')
 
     <div class="container">
+        @include('partials._messages')
 
         @yield('content')
 
@@ -16,6 +17,8 @@
     </div><!-- end of container -->
 
       @include('partials._javascript')
+      <!-- this loads after all the scripts are loaded -->
+      @yield('scripts')
 
   </body>
 </html>
