@@ -20,7 +20,8 @@ class AssetController extends Controller
     public function index()
     {
       // create a variable  and store all the blog posts in it from the database
-      $assets = Asset::all(); //all() gets all the data in the database
+      #$assets = Asset::all(); //all() gets all the data in the database
+      $assets = Asset::orderBy('id', 'desc')->paginate(5);
       //return a view and pass in the above variable
       return view('assets.index')->withAssets($assets);
     }
@@ -149,6 +150,13 @@ class AssetController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //make var of model Post then find the item
+        $asset = Asset::find($id);
+        //delete the item
+        $asset->delete();
+        //flash data with success message
+        Session::flash('success', 'The asset was successfully deleted');
+        //redirect with flash data to index cause show wont exist anymore
+        return redirect()->route('assets.index');
     }
 }

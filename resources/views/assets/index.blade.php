@@ -54,6 +54,12 @@
             @endforeach
           </tbody>
         </table>
+
+        <!-- pagination for laravel from paginate() method-->
+        <div class="text-center">
+          {!! $assets->links(); !!}
+        </div>
+
       </div>
     </div>
 
