@@ -98,7 +98,10 @@ class AssetController extends Controller
      */
     public function edit($id)
     {
-        //
+      // find the item in the database and save as a variable
+      $asset = Asset::find($id);
+      // return the view and pass with the variable we created
+      return view('assets.edit')->withAsset($asset);
     }
 
     /**
@@ -110,7 +113,32 @@ class AssetController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      // validate the data
+      $this->validate($request, array(
+            'brand' => 'required|max:255',
+            'name' => 'required|max:255',
+            'model' => 'required|max:255',
+            'resolution' => 'required|max:255',
+            'processor' => 'required|max:255',
+            'ram' => 'required|max:255'
+        ));
+      // save the data to the database
+      // find the exisiting and update it
+      $asset = Asset::find($id);
+      #input - identifies the data from the request
+      $asset->brand = $request->input('brand');
+      $asset->name = $request->input('name');
+      $asset->model = $request->input('model');
+      $asset->resolution = $request->input('resolution');
+      $asset->processor = $request->input('processor');
+      $asset->ram = $request->input('ram');
+
+      #this automatically update the updated_at
+      $asset->save();
+      // set flash data with success message
+      Session::flash('success', 'This asset was successfully saved.');
+      // redirect with flash data to posts.show
+      return redirect()->route('assets.show', $asset->$id);
     }
 
     /**
