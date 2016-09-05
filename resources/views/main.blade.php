@@ -5,17 +5,28 @@
   </head>
   <body>
 
-    @include('partials._nav')
+    <div id="wrapper">
 
-    <div class="container">
+      @include('partials._nav')
 
-        @include('partials._messages')
+      <div id="page-wrapper">
 
-        @yield('content')
+          <div class="container-fluid">
 
-        @include('partials._footer')
+            @include('partials._messages')
 
-    </div><!-- end of container -->
+            @yield('content')
+
+            @include('partials._footer')
+
+          </div>
+          <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper --> \
+
+      </div>
+      <!-- /#wrapper -->
 
       @include('partials._javascript')
       <!-- this loads after all the scripts are loaded -->

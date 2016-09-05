@@ -55,7 +55,10 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        //
+      //get all data from database
+      $employee = User::find($id);
+      //return a view and pass data
+      return view('employees.show')->withEmployee($employee);
     }
 
     /**

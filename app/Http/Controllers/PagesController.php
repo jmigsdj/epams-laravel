@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Asset;
 
 class PagesController extends Controller {
 
@@ -35,8 +36,10 @@ class PagesController extends Controller {
   public function getContact(){
       return view('pages.contact');
   }
-  # post request - usually forms
-  // public function postContact(){
-  //
-  // }
+
+  public function getDashboard(){
+      $assets = Asset::count();
+
+      return view('dashboard.index')->withAssets($assets);
+  }
 }

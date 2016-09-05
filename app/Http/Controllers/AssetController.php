@@ -52,24 +52,71 @@ class AssetController extends Controller
         // validate the data
         // more in the documentation
         $this->validate($request, array(
-              'brand' => 'required|max:255',
-              'name' => 'required|max:255',
-              'model' => 'required|max:255',
-              'resolution' => 'required|max:255',
-              'processor' => 'required|max:255',
-              'ram' => 'required|max:255'
+          'tracker' => 'max:255',     #RGN..
+          'barcode' => 'max:255',
+          #'accountability' => 'max:255',
+          'name' => 'max:255',
+          'brand' => 'max:255',
+          #'user_id' => 'max:255', #name of the user
+          #'borrowTime' => 'max:255',#time
+          #'returnTime' => 'max:255',#time
+          'status' => 'max:255',
+          'condition' => 'max:255',
+          'model' => 'max:255',
+          'resolution' => 'max:255',
+          'processor' => 'max:255',
+          'ram' => 'max:255',
+          'os' => 'max:255',
+          'chipset' => 'max:255',
+          'gpu' => 'max:255',
+          'bit' => 'max:255',# x32/x64
+          'screenSize' => 'max:255',
+          'graphics' => 'max:255', #hardware
+          'internalStorage' => 'max:255',
+          'simSupport' => 'max:255',
+          'arrivalDate' => 'max:255',
+          'arrivalNotes' => 'max:255',
+          'mac' => 'max:255',
+          'serial' => 'max:255',
+          'assetType' => 'max:255',
+          'subAsset' => 'max:255',
+          'imei' => 'max:255',
+          'storageAllocation' => 'max:255',
+          'category' => 'max:255'
           ));
 
         // store in the database
         #create a new instance of the model
         $asset = new Asset;
         #now we can add things
-        $asset->brand = $request->brand;
+        $asset->tracker = $request->tracker;
+        $asset->barcode = $request->barcode;
         $asset->name = $request->name;
+        $asset->brand = $request->brand;
+        $asset->status = $request->status;
+        $asset->condition = $request->condition;
         $asset->model = $request->model;
         $asset->resolution = $request->resolution;
         $asset->processor = $request->processor;
         $asset->ram = $request->ram;
+        $asset->os = $request->os;
+        $asset->chipset = $request->chipset;
+        $asset->gpu = $request->gpu;
+        $asset->bit = $request->bit;
+        $asset->screenSize = $request->screenSize;
+        $asset->graphics = $request->graphics;
+        $asset->internalStorage = $request->internalStorage;
+        $asset->simSupport = $request->simSupport;
+        $asset->arrivalDate = $request->arrivalDate;
+        $asset->arrivalNotes = $request->arrivalNotes;
+        $asset->mac = $request->mac;
+        $asset->serial = $request->serial;
+        $asset->assetType = $request->assetType;
+        $asset->subAsset = $request->subAsset;
+        $asset->imei = $request->imei;
+        $asset->storageAllocation = $request->storageAllocation;
+        $asset->category = $request->category;
+
         #save the object using the save() method
         $asset->save();
 
@@ -120,23 +167,70 @@ class AssetController extends Controller
     {
       // validate the data
       $this->validate($request, array(
-            'brand' => 'required|max:255',
-            'name' => 'required|max:255',
-            'model' => 'required|max:255',
-            'resolution' => 'required|max:255',
-            'processor' => 'required|max:255',
-            'ram' => 'required|max:255'
+        'tracker' => 'max:255',     #RGN..
+        'barcode' => 'max:255',
+        #'accountability' => 'max:255',
+        'name' => 'max:255',
+        'brand' => 'max:255',
+        #'user_id' => 'max:255', #name of the user
+        #'borrowTime' => 'max:255',#time
+        #'returnTime' => 'max:255',#time
+        'status' => 'max:255',
+        'condition' => 'max:255',
+        'model' => 'max:255',
+        'resolution' => 'max:255',
+        'processor' => 'max:255',
+        'ram' => 'max:255',
+        'os' => 'max:255',
+        'chipset' => 'max:255',
+        'gpu' => 'max:255',
+        'bit' => 'max:255',# x32/x64
+        'screenSize' => 'max:255',
+        'graphics' => 'max:255', #hardware
+        'internalStorage' => 'max:255',
+        'simSupport' => 'max:255',
+        'arrivalDate' => 'max:255',
+        'arrivalNotes' => 'max:255',
+        'mac' => 'max:255',
+        'serial' => 'max:255',
+        'assetType' => 'max:255',
+        'subAsset' => 'max:255',
+        'imei' => 'max:255',
+        'storageAllocation' => 'max:255',
+        'category' => 'max:255'
         ));
       // save the data to the database
       // find the exisiting and update it
       $asset = Asset::find($id);
       #input - identifies the data from the request
-      $asset->brand = $request->input('brand');
+      $asset->tracker = $request->input('tracker');
+      $asset->barcode = $request->input('barcode');
       $asset->name = $request->input('name');
+      $asset->brand = $request->input('brand');
+      $asset->status = $request->input('status');
+      $asset->condition = $request->input('condition');
       $asset->model = $request->input('model');
       $asset->resolution = $request->input('resolution');
       $asset->processor = $request->input('processor');
       $asset->ram = $request->input('ram');
+      $asset->os = $request->input('os');
+      $asset->chipset = $request->input('chipset');
+      $asset->gpu = $request->input('gpu');
+      $asset->bit = $request->input('bit');
+      $asset->screenSize = $request->input('screenSize');
+      $asset->graphics = $request->input('graphics');
+      $asset->internalStorage = $request->input('internalStorage');
+      $asset->simSupport = $request->input('simSupport');
+      $asset->arrivalDate = $request->input('arrivalDate');
+      $asset->arrivalNotes = $request->input('arrivalNotes');
+      $asset->mac = $request->input('mac');
+      $asset->serial = $request->input('serial');
+      $asset->assetType = $request->input('assetType');
+      $asset->subAsset = $request->input('subAsset');
+      $asset->imei = $request->input('imei');
+      $asset->storageAllocation = $request->input('storageAllocation');
+      $asset->category = $request->input('category');
+
 
       #this automatically update the updated_at
       $asset->save();
