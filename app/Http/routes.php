@@ -25,5 +25,8 @@ Route::get('/', 'PagesController@getIndex');
 Route::resource('assets', 'AssetController');
 Route::resource('employees', 'EmployeeController');
 
-// Test dashboard
+// Dashboard
 Route::get('dashboard', 'PagesController@getDashboard');
+
+//Inventory
+Route::get('inventory', 'PagesController@getInventory');

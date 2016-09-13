@@ -18,7 +18,7 @@
     <![endif]-->
 </head>
 
-<body id="page-top" class="index">
+<body class="index">
 
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -28,15 +28,12 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">EPAMS</a>
+                <a class="navbar-brand" href="#">EPAMS</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
                     <li><a href="{{route('register')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     <li><a href="{{route('login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
@@ -51,7 +48,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <img class="img-responsive" src="img/epLogo.png" alt="epams_logo">
+                    <img class="img-responsive" src="img/epLogo.png" alt="epams_logo" width="500" height="500">
                     <div class="intro-text">
                         <span class="name">EPAMS</span>
                         <hr class="star-light">

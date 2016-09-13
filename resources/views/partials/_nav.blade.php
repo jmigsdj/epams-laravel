@@ -36,6 +36,9 @@
             <li class="{{ Request::is('dashboard') ? "active" : "" }}">
                 <a href="/dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
+            <li class="{{ Request::is('inventory') ? "active" : "" }}">
+                <a href="/inventory"><i class="fa fa-fw fa-table"></i> Inventory</a>
+            </li>
             <li class="{{ Request::is('assets') ? "active" : "" }}">
                 <a href="{{ route('assets.index')}}"><i class="fa fa-fw fa-table"></i> Assets</a>
             </li>

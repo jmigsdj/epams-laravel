@@ -42,4 +42,10 @@ class PagesController extends Controller {
 
       return view('dashboard.index')->withAssets($assets);
   }
+
+  public function getInventory(){
+      $assets = Asset::orderBy('id', 'desc')->paginate(5);
+
+      return view('pages.inventory')->withAssets($assets);
+  }
 }
